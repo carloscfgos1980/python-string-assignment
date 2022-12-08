@@ -14,36 +14,33 @@ goal_0 = 32
 goal_1 = 54
 
 
-# Convert inter to strings
-goal_first = str(goal_0)
-goal_snd = str(goal_1)
-
 # Goals report
-scorers = goal_scorer_0 + ' ' + goal_first + \
-    ',' + ' ' + goal_scorer_1 + ' ' + goal_snd
+scorers = goal_scorer_0 + ' ' + \
+    str(goal_0) + ',' + ' ' + goal_scorer_1 + ' ' + str(goal_1)
 print(scorers)
 # Report
-report = f'{goal_scorer_0} scored in the {goal_first}nd minute n\ {goal_scorer_1} scored in the {goal_snd}nd minute'
+report = f'{goal_scorer_0} scored in the {goal_0}nd minute\n{goal_scorer_1} scored in the {goal_1}nd minute'
 
 print(report)
 
 # PART II
 
-player = 'Gut von Examplestein'  # Name of the goal scorer
+player = 'Gut Von Examplestein'  # Name of the goal scorer
 
-first_name = player[:3]  # First name
+first_name = player[:player.find(' ')]  # First name
 print(first_name)
 
-last_name_len = len(player[9:])  # Last name lenght
-print(last_name_len)
 
-name_short = f'{player[0]}. {player[4:]}'
+last_name_index = player.find(' ') + 1 # if I don't add 1, then the blanck space is also considered
+print(last_name_index)
+
+last_name = player[last_name_index:]  # Last name
+print(last_name)
+
+name_short = f'{player[0]}. {last_name}'
 print(name_short)
 
 chant = f'{first_name}!\t' * 3
 print(chant)
 
-chant_length = len(chant)
-print(chant_length)
-
-print(chant[14] != '')
+print(chant[-1] != ' ')  # (-1) returns the last index number of the string
